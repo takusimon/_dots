@@ -1,0 +1,160 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "~/dots/fastfetch/logo.png",
+    "width": null,
+    "height": null,
+    "padding": {
+      "top": 2,
+      "left": 0,
+      "right": 4
+    },
+  },
+  "display":{
+	  "key": {
+		  "type":"icon",
+		  "paddingLeft":1
+	  },
+	  "separator":"  "
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "\u001b[33m────────────────────Device─────────────────",
+      "outputColor": "",
+      "times": 0
+    },
+    {
+      "type": "host",
+      "keyIcon": "╭─󰌢",
+	  "keyColor":"#7287fd"
+    },
+    {
+      "type": "disk",
+      "keyIcon": "├─",
+	  "keyColor":"#7287fd",
+      "showRegular": true,
+      "showExternal": true,
+      "showHidden": false,
+      "showSubvolumes": false,
+      "showReadOnly": true,
+      "showUnknown": false,
+      "folders": "",
+      "hideFolders": "/efi:/boot:/boot/*",
+      "hideFS": "",
+      "useAvailable": false,
+      "percent": {
+        "green": 50,
+        "yellow": 80,
+        "type": 0
+      }
+    },
+    {
+      "type": "cpu",
+      "keyIcon": "├─",
+	  "keyColor":"#7287fd",
+      "temp": false,
+      "showPeCoreCount": false,
+      "tempSensor": ""
+    },
+    {
+      "type": "gpu",
+      "keyIcon": "├─󰾲",
+	  "keyColor":"#7287fd",
+      "driverSpecific": false,
+      "detectionMethod": "pci",
+      "temp": false,
+      "hideType": "none",
+      "percent": {
+        "green": 50,
+        "yellow": 80,
+        "type": 0
+      }
+    },
+    {
+      "type": "memory",
+      "keyIcon": "├─",
+	  "keyColor":"#7287fd",
+      "percent": {
+        "green": 50,
+        "yellow": 80,
+        "type": 0
+      }
+    },
+    {
+      "type": "swap",
+      "percent": {
+        "green": 50,
+        "yellow": 80,
+        "type": 0
+      },
+      "keyIcon": "╰─󰓡",
+	  "keyColor":"#7287fd",
+      "separate": false
+    },
+	"break",
+    {
+      "type": "custom",
+      "format": "\u001b[33m────────────────────Env─────────────────",
+      "outputColor": "",
+      "times": 0
+    },
+    {
+      "type": "packages",
+      "keyIcon": "╭─󰏖",
+	  "keyColor":"#209fb5",
+      "disabled": [
+        "winget"
+      ],
+      "combined": false
+    },
+    {
+      "type": "shell",
+      "keyIcon": "├─",
+	  "keyColor":"#209fb5"
+    },
+    {
+      "type": "wm",
+      "keyIcon": "├─",
+	  "keyColor":"#209fb5",
+      "detectPlugin": true
+    },
+    {
+      "type": "terminal",
+      "keyIcon": "╰─",
+	  "keyColor":"#209fb5"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[33m────────────────────OS─────────────────",
+      "outputColor": "",
+      "times": 0
+    },
+    {
+      "type": "os",
+      "keyIcon": "╭─",
+	  "keyColor":"#fe640b"
+    },
+    {
+      "type": "kernel",
+      "keyIcon": "├─",
+	  "keyColor":"#fe640b"
+    },
+    {
+      "type": "uptime",
+      "keyIcon": "├─",
+	  "keyColor":"#fe640b"
+    },
+{
+            "type": "command",
+            "keyIcon": "╰─",
+            "keyColor": "#fe640b",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+    "break",
+	{
+  "type": "custom",
+  "format": "\u001b[1m\u001b[38;2;245;224;220m󰟀  \u001b[38;2;242;205;205m󰟀  \u001b[38;2;245;194;231m󰟀  \u001b[38;2;203;166;247m󰟀  \u001b[38;2;243;139;168m󰟀  \u001b[38;2;235;160;172m󰟀  \u001b[38;2;250;179;135m󰟀  \u001b[38;2;249;226;175m󰟀  \u001b[38;2;166;227;161m󰟀  \u001b[38;2;148;226;213m󰟀  \u001b[38;2;137;220;235m󰟀  \u001b[38;2;116;199;236m󰟀  \u001b[38;2;137;180;250m󰟀  \u001b[38;2;180;190;254m󰟀\u001b[0m"
+}
+  ]
+}

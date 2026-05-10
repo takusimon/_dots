@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/taku/myflake/modules/features'
+let g:netrw_dirhist_5='/home/taku/nixConf/modules/features'
+let g:netrw_dirhist_4='/home/taku/nixConf/modules'
+let g:netrw_dirhist_3='/home/taku/nixConf/modules/features'
+let g:netrw_dirhist_2='/home/taku/Documents/C/.git'
+let g:netrw_dirhist_1='/home/taku/nixConf/modules/features'
+let g:netrw_dirhist_0='/home/taku'
+let g:netrw_dirhist_9='/home/taku/nixConf'
+let g:netrw_dirhist_8='/home/taku/nixConf/modules'
+let g:netrw_dirhist_7='/home/taku/nixConf/modules/features'
