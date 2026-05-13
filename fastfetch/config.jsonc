@@ -1,160 +1,188 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+
   "logo": {
-    "source": "~/dots/fastfetch/logo.png",
-    "width": null,
-    "height": null,
+    "type": "auto",
+    "source": "/home/taku/.config/fastfetch/gentoo-3d.png",
+
     "padding": {
-      "top": 2,
-      "left": 0,
-      "right": 4
+      "top": 1,
+      "left": 2,
+      "right": 3
     },
+
+    "color": {
+      "1": "35",
+      "2": "36"
+    }
   },
-  "display":{
-	  "key": {
-		  "type":"icon",
-		  "paddingLeft":1
-	  },
-	  "separator":"  "
+
+  "display": {
+    "separator": "  ",
+
+    "color": {
+      "keys": "220",
+      "title": "223",
+      "output": "223",
+      "separator": "240"
+    },
+
+    "key": {
+      "width": 16,
+      "paddingLeft": 1
+    },
+
+    "bar": {
+      "char": {
+        "elapsed": "■",
+        "total": "■"
+      },
+
+      "width": 10
+    },
+
+    "percent": {
+      "type": [
+        "num",
+        "num-color"
+      ]
+    },
+
+    "size": {
+      "binaryPrefix": "iec",
+      "ndigits": 2
+    }
   },
+
   "modules": [
     {
       "type": "custom",
-      "format": "\u001b[33m────────────────────Device─────────────────",
-      "outputColor": "",
-      "times": 0
+      "format": " ╭───────────╮"
     },
+
+    {
+      "type": "title",
+      "key": "│  user    │",
+      "format": "{user-name}",
+      "color": {
+        "user": "167",
+        "at": "223",
+        "host": "223"
+      }
+    },
+
     {
       "type": "host",
-      "keyIcon": "╭─󰌢",
-	  "keyColor":"#7287fd"
+      "key": "│  host    │",
+      "format": "{host-name}",
+      "outputColor": "214"
     },
+
+    {
+      "type": "os",
+      "key": "│  distro  │",
+      "outputColor": "142"
+    },
+
+    {
+      "type": "kernel",
+      "key": "│  kernel  │",
+      "outputColor": "109"
+    },
+
+    {
+      "type": "uptime",
+      "key": "│  uptime  │",
+      "compact": true,
+      "outputColor": "108"
+    },
+
+    {
+      "type": "shell",
+      "key": "│  shell   │",
+      "outputColor": "175"
+    },
+
+    {
+      "type": "wm",
+      "key": "│  de/wm   │",
+      "outputColor": "142"
+    },
+
+    {
+      "type": "packages",
+      "key": "│  pkgs    │",
+      "disabled": ["winget"],
+      "outputColor": "167"
+    },
+
+    {
+      "type": "memory",
+      "key": "│  memory  │",
+      "percent": {
+        "green": 50,
+        "yellow": 80,
+        "type": 0
+      },
+      "outputColor": "220"
+    },
+
+
+    {
+      "type": "cpu",
+      "key": "│  cpu     │",
+      "temp": false,
+      "showPeCoreCount": false
+    },
+
+    {
+      "type": "gpu",
+      "key": "│ 󰾲 gpu     │",
+      "driverSpecific": false,
+      "detectionMethod": "pci",
+      "temp": false,
+      "hideType": "none"
+    },
+
     {
       "type": "disk",
-      "keyIcon": "├─",
-	  "keyColor":"#7287fd",
+      "key": "│  disk    │",
       "showRegular": true,
       "showExternal": true,
       "showHidden": false,
       "showSubvolumes": false,
       "showReadOnly": true,
       "showUnknown": false,
-      "folders": "",
-      "hideFolders": "/efi:/boot:/boot/*",
-      "hideFS": "",
-      "useAvailable": false,
-      "percent": {
-        "green": 50,
-        "yellow": 80,
-        "type": 0
-      }
+      "hideFolders": "/efi:/boot:/boot/*"
     },
-    {
-      "type": "cpu",
-      "keyIcon": "├─",
-	  "keyColor":"#7287fd",
-      "temp": false,
-      "showPeCoreCount": false,
-      "tempSensor": ""
-    },
-    {
-      "type": "gpu",
-      "keyIcon": "├─󰾲",
-	  "keyColor":"#7287fd",
-      "driverSpecific": false,
-      "detectionMethod": "pci",
-      "temp": false,
-      "hideType": "none",
-      "percent": {
-        "green": 50,
-        "yellow": 80,
-        "type": 0
-      }
-    },
-    {
-      "type": "memory",
-      "keyIcon": "├─",
-	  "keyColor":"#7287fd",
-      "percent": {
-        "green": 50,
-        "yellow": 80,
-        "type": 0
-      }
-    },
-    {
-      "type": "swap",
-      "percent": {
-        "green": 50,
-        "yellow": 80,
-        "type": 0
-      },
-      "keyIcon": "╰─󰓡",
-	  "keyColor":"#7287fd",
-      "separate": false
-    },
-	"break",
-    {
-      "type": "custom",
-      "format": "\u001b[33m────────────────────Env─────────────────",
-      "outputColor": "",
-      "times": 0
-    },
-    {
-      "type": "packages",
-      "keyIcon": "╭─󰏖",
-	  "keyColor":"#209fb5",
-      "disabled": [
-        "winget"
-      ],
-      "combined": false
-    },
-    {
-      "type": "shell",
-      "keyIcon": "├─",
-	  "keyColor":"#209fb5"
-    },
-    {
-      "type": "wm",
-      "keyIcon": "├─",
-	  "keyColor":"#209fb5",
-      "detectPlugin": true
-    },
+
     {
       "type": "terminal",
-      "keyIcon": "╰─",
-	  "keyColor":"#209fb5"
+      "key": "│  term    │"
+    },
+
+	{
+            "type": "command",
+            "key": "│  Age     │",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+    {
+      "type": "custom",
+      "format": " ├───────────┤"
+    },
+    {
+      "type": "colors",
+      "key": "│  colors  │",
+      "symbol": "circle",
+      "paddingLeft": 1,
+      "block": {
+        "width": 2,
+        "range": [0, 7]
+      }
     },
     {
       "type": "custom",
-      "format": "\u001b[33m────────────────────OS─────────────────",
-      "outputColor": "",
-      "times": 0
-    },
-    {
-      "type": "os",
-      "keyIcon": "╭─",
-	  "keyColor":"#fe640b"
-    },
-    {
-      "type": "kernel",
-      "keyIcon": "├─",
-	  "keyColor":"#fe640b"
-    },
-    {
-      "type": "uptime",
-      "keyIcon": "├─",
-	  "keyColor":"#fe640b"
-    },
-{
-            "type": "command",
-            "keyIcon": "╰─",
-            "keyColor": "#fe640b",
-            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
-        },
-    "break",
-	{
-  "type": "custom",
-  "format": "\u001b[1m\u001b[38;2;245;224;220m󰟀  \u001b[38;2;242;205;205m󰟀  \u001b[38;2;245;194;231m󰟀  \u001b[38;2;203;166;247m󰟀  \u001b[38;2;243;139;168m󰟀  \u001b[38;2;235;160;172m󰟀  \u001b[38;2;250;179;135m󰟀  \u001b[38;2;249;226;175m󰟀  \u001b[38;2;166;227;161m󰟀  \u001b[38;2;148;226;213m󰟀  \u001b[38;2;137;220;235m󰟀  \u001b[38;2;116;199;236m󰟀  \u001b[38;2;137;180;250m󰟀  \u001b[38;2;180;190;254m󰟀\u001b[0m"
-}
+      "format": " ╰───────────╯"
+    }
   ]
 }

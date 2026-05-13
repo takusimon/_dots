@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/taku/repos/gentoo_dots/fastfetch'
 let g:netrw_dirhist_8='/home/taku/repos/gentoo_dots/hypr'
 let g:netrw_dirhist_7='/home/taku/.local/share/Anki2'
 let g:netrw_dirhist_6='/home/taku/.local/share'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_3='/home/taku/repos/gentoo_dots/waybar'
 let g:netrw_dirhist_2='/etc/portage/package.use'
 let g:netrw_dirhist_1='/home/taku/repos/gentoo_dots/waybar'
 let g:netrw_dirhist_0='/home/taku/repos/gentoo_dots'
-let g:netrw_dirhist_9='/home/taku/repos/gentoo_dots/hypr'
