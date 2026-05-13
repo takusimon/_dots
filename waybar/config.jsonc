@@ -1,0 +1,120 @@
+{
+"spacing": 18,
+
+"modules-left":[""niri/window","backlight"],
+"modules-right":["custom/date","battery"],
+"modules-center":[
+	"clock",
+	"temperature","memory","cpu","disk",
+	"pulseaudio",
+	"network"
+],
+"niri/workspaces": {
+    "format": "{value}",
+    "on-click": "activate",
+    "all-outputs": true
+},
+"clock": {
+    "interval": 60,
+    "format": "{:%H:%M} ",
+    "tooltip": true,
+    "calendar":{
+	    "format":{
+		    "months": "<span color='#fabd2f'><b>{}</b></span>",     // yellow
+		    "weekdays": "<span color='#83a598'><b>{}</b></span>",   // blue
+		    "weeks": "<span color='#8ec07c'>W{}</span>",            // aqua/green
+		    "days": "<span color='#ebdbb2'>{}</span>",              // fg (light beige)
+		    "today": "<span color='#fb4934'><b><u>{}</u></b></span>" // red highlight
+		}
+}
+},
+"backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""]
+},
+"hyprland/workspaces": {
+	"format": "{name}",
+	"format-icons": {
+		"1": "1",
+		"2": "2",
+		"3": "3",
+        "4": "4",
+		"active": "",
+		"default": ""
+	},
+       "persistent-workspaces": {
+             "eDP-1": [1,2,3],
+            "HDMI-A-1": [4,],
+       }
+},
+
+"pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% ",
+    "format-muted": "Muted ",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "default": ["", ""],
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+},
+"network": {
+    "interface": "wlp1s0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+},
+"custom/date": {
+    "exec": "date '+%a %b %d'",
+    "interval": 60,
+    "format": "󰃭  {}",
+    "tooltip": true,
+    "tooltip-format": "{:%A, %B %d, %Y}"
+},
+
+"battery": {
+	"format": "{capacity}% ",
+	"format-charging":"{capacity}% 󰂄",
+	 "format-plugged": "🔌 {capacity}%",
+	"states": {
+        "warning": 30,
+        "critical": 15}
+},
+"custom/pacman":{
+    "format":"{} 󰣇",
+    "interval":600,
+    "exec":"(checkupdates; yay -Qua) | wc -l",
+    "on-click":"kitty --hold yay -Syu",
+    "signal": 8,
+    "tooltip-format": "{} updates available"
+},
+
+"memory": {
+        "format": "{}% "
+},
+"cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+},
+"temperature": {
+        "thermal-zone": 2,
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["󰉬", "", "󰉪"]
+    },
+
+"disk": {
+    "interval": 30,
+    "format": " {percentage_used}%",
+}
+},

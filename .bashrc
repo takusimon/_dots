@@ -1,4 +1,5 @@
 iatest=$(expr index "$-" i)
+export PATH="$HOME/.local/bin:$PATH"
 
 # --- History Control ---
 export HISTSIZE=10000

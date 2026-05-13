@@ -2,6 +2,13 @@ include "binds.kdl"
 include "windowRules.kdl"
 include "layout.kdl"
 
+spawn-at-startup "waybar"
+spawn-at-startup "dunst"
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
+spawn-at-startup "hyprpaper"
+spawn-at-startup "hypridle"
+
+
 prefer-no-csd
 
 layer-rule {

@@ -1,0 +1,124 @@
+@define-color bg        #32302f;
+@define-color bg0       #3c3836;
+@define-color bg1       #504945;
+@define-color fg        #ebdbb2;
+
+@define-color red       #fb4934;
+@define-color green     #b8bb26;
+@define-color yellow    #fabd2f;
+@define-color blue      #83a598;
+@define-color purple    #d3869b;
+@define-color aqua      #8ec07c;
+@define-color orange    #fe8019;
+@define-color gray      #928374;
+
+* {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12px;
+    font-weight: 500;
+}
+
+window#waybar {
+    background: rgba(50, 48, 47, 0.88);
+    color: @fg;
+}
+
+tooltip {
+    background: @bg;
+    border: 1px solid @gray;
+    color: @fg;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 4px 6px;
+}
+
+#workspaces,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#disk,
+#network,
+#pulseaudio,
+#backlight,
+#battery,
+#custom-date,
+#custom-pacman {
+    background: @bg0;
+    border: 1px solid @gray;
+    color: @fg;
+
+    padding: 2px 8px;
+    margin: 0 3px;
+
+    border-radius: 2px;
+}
+
+#workspaces {
+    padding: 2px 6px;
+}
+
+#workspaces button {
+    color: @gray;
+    padding: 0 6px;
+    margin: 0 2px;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: @yellow;
+    background: @bg1;
+}
+
+#workspaces button.empty {
+    color: #665c54;
+}
+
+#clock {
+    color: @yellow;
+}
+
+#cpu {
+    color: @green;
+}
+
+#memory {
+    color: @blue;
+}
+
+#temperature {
+    color: @red;
+}
+
+#disk {
+    color: @aqua;
+}
+
+#network {
+    color: @purple;
+}
+
+#pulseaudio {
+    color: @orange;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#custom-date {
+    color: @aqua;
+}
+
