@@ -2,8 +2,10 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
 
   "logo": {
-    "type": "auto",
+    "type": "kitty-direct",
     "source": "/home/taku/.config/fastfetch/gentoo-3d.png",
+	"width":20,
+	"height":10,
 
     "padding": {
       "top": 1,
