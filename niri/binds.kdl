@@ -8,31 +8,32 @@ binds {
         spawn "fuzzel";
     }
      Mod+Return repeat=false hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
-     Print {
-        spawn "dms" "screenshot" "region" "--no-file"
-    }
+     Print {screenshot; }
 	Mod+Escape hotkey-overlay-title="Lock Screen" {spawn "hyprlock";}
 	Mod+Shift+X hotkey-overlay-title="Powermenu" { spawn "sh" "-c" "/home/taku/.local/bin/powermenu";}
+	Mod+V hotkey-overlay-title="Clipboard" {spawn "sh" "-c" "cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode | wl-copy";}
 
 
     // Audio Controls
-    XF86AudioRaiseVolume allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "increment" "3" ;
-    }
-    XF86AudioLowerVolume allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "decrement" "3" ;
-    }
-    XF86AudioMute allow-when-locked=true {
-        spawn "dms" "ipc" "call" "audio" "mute" ;
-    }
+	XF86AudioRaiseVolume allow-when-locked=true {
+		spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "3%+"
+	}
 
+	XF86AudioLowerVolume allow-when-locked=true {
+		spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "3%-"
+	}
+
+	XF86AudioMute allow-when-locked=true {
+		spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"
+	}
     // Brightness Controls
-    XF86MonBrightnessUp allow-when-locked=true {
-       spawn "dms" "ipc" "call" "brightness" "increment" "5" "" ;
-    }
-    XF86MonBrightnessDown allow-when-locked=true {
-       spawn "dms" "ipc" "call" "brightness" "decrement" "5" "" ;
-    }
+	XF86MonBrightnessUp allow-when-locked=true {
+    spawn "brightnessctl" "set" "5%+"
+	}
+
+	XF86MonBrightnessDown allow-when-locked=true {
+		spawn "brightnessctl" "set" "5%-"
+	}
      // === Window Management ===
     Mod+Q repeat=false { close-window; }
     Mod+F repeat=false { maximize-column; }

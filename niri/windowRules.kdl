@@ -10,16 +10,17 @@ window-rule {
 	border {
 		on
 		width 1	
-		active-color "#f9e2af"
-		inactive-color "#45475a"
+		active-color "#bdae93"
+		inactive-color "#504945"
 	}
 
 	tab-indicator {
-		active-color "#f38ba8"
+		active-color "#98971a"
+
 		
 	}
 	
-	geometry-corner-radius 15
+	geometry-corner-radius 5
 	clip-to-geometry true
 	tiled-state true
 

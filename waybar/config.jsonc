@@ -1,12 +1,12 @@
 {
 "spacing": 18,
 
-"modules-left":[""niri/window","backlight"],
+"modules-left":["niri/workspaces","backlight","niri/window"],
 "modules-right":["custom/date","battery"],
 "modules-center":[
 	"clock",
 	"temperature","memory","cpu","disk",
-	"pulseaudio",
+	"wireplumber",
 	"network"
 ],
 "niri/workspaces": {
@@ -33,36 +33,20 @@
     "format": "{percent}% {icon}",
     "format-icons": ["", ""]
 },
-"hyprland/workspaces": {
-	"format": "{name}",
-	"format-icons": {
-		"1": "1",
-		"2": "2",
-		"3": "3",
-        "4": "4",
-		"active": "",
-		"default": ""
-	},
-       "persistent-workspaces": {
-             "eDP-1": [1,2,3],
-            "HDMI-A-1": [4,],
-       }
+"niri/window": {
+    "format": "  {}",
+    "max-length": 24,
+    "tooltip": false,
+    "separate-outputs": true
 },
 
-"pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% ",
-    "format-muted": "Muted ",
-    "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "default": ["", ""],
-    },
-    "scroll-step": 1,
-    "on-click": "pavucontrol",
-    "ignored-sinks": ["Easy Effects Sink"]
+"wireplumber": {
+    "format": "  {volume}%",
+    "format-muted": "󰝟",
+    "scroll-step": 5,
+    "on-click": "pavucontrol"
 },
+
 "network": {
     "interface": "wlp1s0",
     "format": "{ifname}",
@@ -73,14 +57,14 @@
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50
 },
+
+
 "custom/date": {
     "exec": "date '+%a %b %d'",
     "interval": 60,
-    "format": "󰃭  {}",
-    "tooltip": true,
-    "tooltip-format": "{:%A, %B %d, %Y}"
+    "format": "󰃰  {}",
+    "tooltip": false
 },
-
 "battery": {
 	"format": "{capacity}% ",
 	"format-charging":"{capacity}% 󰂄",

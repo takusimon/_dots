@@ -7,7 +7,10 @@ spawn-at-startup "dunst"
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "hypridle"
-
+spawn-at-startup "pipewire"
+spawn-at-startup "wireplumber"
+spawn-at-startup "wl-paste --type text --watch cliphist store"
+spawn-at-startup "wl-paste --type image --watch cliphist store"
 
 prefer-no-csd
 
