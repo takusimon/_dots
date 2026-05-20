@@ -31,6 +31,7 @@ window-rule {
 
 	background-effect {
 		blur true
+		noise 0.05
 		saturation 0
 		xray true
 	}
@@ -44,7 +45,6 @@ window-rule {
 			noise 0.05
 		}	
 	}
-	
 }
 
 window-rule {

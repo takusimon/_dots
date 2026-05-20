@@ -2,38 +2,52 @@ binds {
      // === System & Overview ===
     Mod+Tab repeat=false { toggle-overview; }
     Mod+Shift+M { show-hotkey-overlay; }
-
-    // Application Launchers
-    Mod+Space hotkey-overlay-title="Application Launcher" {
-        spawn "fuzzel";
-    }
-     Mod+Return repeat=false hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
+	Mod+Return repeat=false hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
      Print {screenshot; }
-	Mod+Escape hotkey-overlay-title="Lock Screen" {spawn "hyprlock";}
-	Mod+Shift+X hotkey-overlay-title="Powermenu" { spawn "sh" "-c" "/home/taku/.local/bin/powermenu";}
-	Mod+V hotkey-overlay-title="Clipboard" {spawn "sh" "-c" "cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode | wl-copy";}
+Mod+Space hotkey-overlay-title="Application Launcher" {
+        spawn "dms" "ipc" "call" "spotlight" "toggle";
+    }
+    Mod+V hotkey-overlay-title="Clipboard Manager" {
+        spawn "dms" "ipc" "call" "clipboard" "toggle";
+    }
+    Mod+M hotkey-overlay-title="Task Manager" {
+        spawn "dms" "ipc" "call" "processlist" "focusOrToggle";
+    }
+    Mod+Shift+Comma hotkey-overlay-title="Settings" {
+        spawn "dms" "ipc" "call" "settings" "focusOrToggle";
+    }
+    Mod+N hotkey-overlay-title="Notification Center" {
+        spawn "dms" "ipc" "call" "notifications" "toggle";
+    }
+    Mod+Y hotkey-overlay-title="Browse Wallpapers" {
+        spawn "dms" "ipc" "call" "dankdash" "wallpaper";
+    }
 
+    // Security
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" {
+        spawn "dms" "ipc" "call" "lock" "lock";
+    }
 
     // Audio Controls
-	XF86AudioRaiseVolume allow-when-locked=true {
-		spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "3%+"
-	}
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "increment" "3";
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "decrement" "3";
+    }
+    XF86AudioMute allow-when-locked=true {
+        spawn "dms" "ipc" "call" "audio" "mute";
+    }
 
-	XF86AudioLowerVolume allow-when-locked=true {
-		spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "3%-"
-	}
-
-	XF86AudioMute allow-when-locked=true {
-		spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"
-	}
     // Brightness Controls
-	XF86MonBrightnessUp allow-when-locked=true {
-    spawn "brightnessctl" "set" "5%+"
-	}
+    XF86MonBrightnessUp allow-when-locked=true {
+       spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+       spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+    }
 
-	XF86MonBrightnessDown allow-when-locked=true {
-		spawn "brightnessctl" "set" "5%-"
-	}
+
      // === Window Management ===
     Mod+Q repeat=false { close-window; }
     Mod+F repeat=false { maximize-column; }

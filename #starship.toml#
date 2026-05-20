@@ -24,25 +24,25 @@ $fill $cmd_duration $time\
 # Disable the blank line at the start of the prompt
 add_newline = true
 
-palette = "gruvbox"
+palette = "normal"
 
-[palettes.gruvbox]
-arrow = "#7daea3"
-os = "#ebdbb2"
-os_admin = "#fb4934"
-directory = "#83a598"
-time = "#d3869b"
-node = "#b8bb26"
-git = "#fe8019"
-git_status = "#ebdbb2"
-python = "#fabd2f"
-conda = "#8ec07c"
-java = "#fb4934"
-rust = "#d3869b"
-clang = "#83a598"
-duration = "#fb4934"
-text_color = "#ebdbb2"
-text_light = "#282828"
+[palettes.normal]
+arrow = "#B3BCFD"
+os = "#B3BCFD"
+os_admin = "#B3BCFD"
+directory = "#B3BCFD"
+time = "#B3BCFD"
+node = "#a5e6ba"
+git = "#f17f29"
+git_status = "#DFEBED"
+python = "#edf67d"
+conda = "#70e000"
+java = "#F86279"
+rust = "#ffdac6"
+clang = "#caf0f8"
+duration = "#ce4257"
+text_color = "#EDF2F4"
+text_light = "#26272A"
 
 [username]
 style_user = 'bold os'

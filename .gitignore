@@ -1,1 +1,13 @@
 tmux/plugins
+cava/
+cosmic/
+dconf/
+epiphany/
+evolution/
+g*/
+.gs*
+ibus/
+mimeapps.list
+nautilus/
+pulse/
+user*
