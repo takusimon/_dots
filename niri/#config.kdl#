@@ -38,7 +38,3 @@ blur {
 }
 
 include "dms/colors.kdl"
-
-
-
-include "dms/cursor.kdl"
