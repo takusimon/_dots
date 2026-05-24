@@ -1,0 +1,66 @@
+{
+    "layer": "top",
+    "modules-left": ["wireplumber","cava"],
+    "modules-center": ["clock","hyprland/workspaces","clock#right"],
+    "modules-right": ["battery", "memory"],
+    "battery": {
+    "interval": 60,
+    "format": "{icon}{capacity}%",
+    "format-icons": {
+        "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+    },
+    },
+    "clock": {
+        "format": "{:%H}"
+    },
+    "clock#right":{
+	"format": "{:%M}"
+    },
+    "memory": {
+    "interval": 30,
+    "format": "{}% ",
+    "max-length": 10
+    },
+    "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "muted ",
+    "on-click": "helvum",
+    "format-icons": ["", "", ""]
+    },
+    "hyprland/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		"1": "",
+		"2": "",
+		"3": "",
+	},
+       "persistent-workspaces": {
+             "*": 3, // 5 workspaces by default on every monitor
+        }
+    },
+    "cava": {
+        // "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+        "framerate": 30,
+        "autosens": 1,
+        "sensitivity": 100,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "hide_on_silence": false,
+        // "format_silent": "quiet",
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+    },
+}
