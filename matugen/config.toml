@@ -80,3 +80,8 @@ post_hook = '~/.config/matugen/post-hook-scripts/gtk-themes-reload.sh'
 pre_hook = 'rm -rf ~/.config/qt6ct/colors/matugen.conf'
 input_path = '~/.config/matugen/colors/qtct-colors.conf'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
+
+[templates.starship]
+pre_hook = 'rm -rf ~/.config/starship.toml'
+input_path = '~/.config/matugen/colors/starship.toml'
+output_path = '~/.config/starship.toml'
