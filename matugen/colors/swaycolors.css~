@@ -1,0 +1,14 @@
+/*
+ * swaync Colors
+ * Generated with Matugen
+ */
+@define-color center-bg {{colors.background.default.hex}};
+@define-color notification-bg {{colors.background.default.hex}};
+@define-color center-notification-bg {{colors.background.default.hex}};
+@define-color background             {{colors.background.default.hex}};
+@define-color background-alt         {{colors.on_tertiary.default.hex}};
+@define-color text                   {{colors.primary.default.hex}};
+@define-color text-alt               {{colors.secondary.default.hex}};
+@define-color selected               {{colors.inverse_primary.default.hex}};
+@define-color hover                  {{colors.inverse_primary.default.hex}};
+@define-color urgent                 {{colors.on_error.default.hex}};

@@ -1,0 +1,14 @@
+/*
+ * swaync Colors
+ * Generated with Matugen
+ */
+@define-color center-bg #191113;
+@define-color notification-bg #191113;
+@define-color center-notification-bg #191113;
+@define-color background             #191113;
+@define-color background-alt         #000000;
+@define-color text                   #ffb1c5;
+@define-color text-alt               #e3bdc5;
+@define-color selected               #8c4a5d;
+@define-color hover                  #8c4a5d;
+@define-color urgent                 #690005;
