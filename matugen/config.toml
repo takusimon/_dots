@@ -36,3 +36,18 @@ output_path = '~/.config/hypr/modules/colors.lua'
 pre_hook = 'rm -rf ~/.config/hypr/colors.conf'
 input_path = '~/.config/matugen/colors/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
+
+[templates.tmux]
+pre_hook = 'rm -rf ~/.config/tmux/tmux-colors.conf'
+input_path = '~/.config/matugen/colors/tmux-colors.conf'
+output_path = '~/.config/tmux/colors.conf'
+
+[templates.anki]
+pre_hook = 'rm -rf ~/.local/share/Anki2/addons21/688199788/themes/Anki.json'
+input_path = '~/.config/matugen/colors/anki.json'
+output_path = '~/.local/share/Anki2/addons21/688199788/themes/Anki.json'
+
+[templates.yazi]
+pre_hook = 'rm -rf ~/.config/yazi/theme.toml'
+input_path = '~/.config/matugen/colors/yazi-theme.toml'
+output_path = '~/.config/yazi/theme.toml'
