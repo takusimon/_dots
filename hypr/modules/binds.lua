@@ -25,6 +25,8 @@ hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + SHIFT + ESCAPE", hl.dsp.exec_cmd("wlogout"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 -theme ~/.config/rofi/type-2/style-15.rasi | cliphist decode | wl-copy"))
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
 
 
 -- Move focus with mainMod + arrow keys

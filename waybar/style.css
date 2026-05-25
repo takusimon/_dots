@@ -33,7 +33,7 @@ window#waybar {
     transition: none;
 }
 
-#clock,#clock#right,#battery,#memory,#wireplumber {
+#clock,#clock#right,#battery,#memory,#wireplumber,#cpu,#network,#backlight {
     margin: 0 15px;
     font-weight: 700;
     font-size: 1.12rem;
