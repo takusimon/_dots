@@ -16,9 +16,23 @@ input_path = '~/.config/matugen/colors/colors.rasi'
 output_path = '~/.config/rofi/type-2/colors/colors.rasi'
 
 [templates.swaync]
-pre_hook = 'rm -rf ~/.confing/swaync/swaycolors.css'
+pre_hook = 'rm -rf ~/.config/swaync/swaycolors.css'
 input_path = '~/.config/matugen/colors/swaycolors.css'
 output_path = '~/.config/swaync/swaycolors.css'
 post_hook = 'swaync-client -rs'
 
+[templates.kitty]
+pre_hook = 'rm -rf ~/.config/kitty/themes/Matugen.conf'
+input_path = '~/.config/matugen/colors/kitty-colors.conf'
+output_path = '~/.config/kitty/themes/Matugen.conf'
+post_hook = 'kitty +kitten themes --reload-in=all Matugen'
 
+[templates.hyprland]
+pre_hook = 'rm -rf ~/.config/hypr/modules/colors.lua'
+input_path = '~/.config/matugen/colors/hyprland-colors.lua'
+output_path = '~/.config/hypr/modules/colors.lua'
+
+[templates.hyprlock]
+pre_hook = 'rm -rf ~/.config/hypr/colors.conf'
+input_path = '~/.config/matugen/colors/hyprland-colors.conf'
+output_path = '~/.config/hypr/colors.conf'

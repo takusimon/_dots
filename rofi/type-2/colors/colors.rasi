@@ -4,11 +4,11 @@
  */
 
 * {
-    background:     #191113;
-    background-alt: #261d1f;
-    foreground:     #efdfe1;
+    background:     #1a110e;
+    background-alt: #271e1a;
+    foreground:     #f1dfd9;
 
-    selected:       #ffb1c5;
-    active:         #e3bdc5;
+    selected:       #ffb599;
+    active:         #e7beaf;
     urgent:         #ffb4ab;
 }

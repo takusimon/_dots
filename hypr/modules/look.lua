@@ -1,3 +1,4 @@
+local custom_color = require("modules.colors")
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
@@ -11,8 +12,8 @@ hl.config({
         border_size = 2,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = { colors = {custom_color.primary, custom_color.tertiary}, angle = 45 },
+            inactive_border = custom_color.background,
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -34,7 +35,7 @@ hl.config({
             enabled      = true,
             range        = 20,
             render_power = 3,
-            color        = 0xee1a1a1a,
+            color        = custom_color.background,
         },
 
         blur = {
