@@ -1,0 +1,8 @@
+local custom_color = require("colors")
+hl.group({
+	auto_group = true,
+	insert_after_current = false,
+	focus_removed_window = false,
+	
+
+})

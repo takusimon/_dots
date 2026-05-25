@@ -4,7 +4,7 @@
 
 -- Set programs that you use
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "nautilus"
 local menu        = "~/.config/rofi/type-2/launcher.sh"
 
 ---------------------
@@ -13,26 +13,44 @@ local menu        = "~/.config/rofi/type-2/launcher.sh"
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
--- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+-- Launch Commands
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("pkill waybar;waybar &"))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill swaync; swany &"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t "))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + SHIFT + ESCAPE", hl.dsp.exec_cmd("wlogout"))
 
+
 -- Move focus with mainMod + arrow keys
-hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
+
+--scrolling layout
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.layout("move +200"))
+hl.bind(mainMod .. " + SHIFT + J ", hl.dsp.layout("move -200"))
+hl.bind(mainMod .. " + left", hl.dsp.layout("swapcol l"))
+hl.bind(mainMod .. " + right", hl.dsp.layout("swapcol r"))
+hl.bind(mainMod .. " + comma", hl.dsp.layout("consume_or_expel prev"))
+hl.bind(mainMod .. " + period", hl.dsp.layout("consume_or_expel next"))
+hl.bind(mainMod .. " + F", hl.dsp.layout("colresize +conf"))
+
+--groups
+hl.bind(mainMod .. " + G", hl.dsp.group.toggle(window))
+hl.bind(mainMod .. " + SHIFT +  G", hl.dsp.group.lock(window))
+hl.bind(mainMod .. " + J", hl.dsp.group.prev(window))
+hl.bind(mainMod .. " + K", hl.dsp.group.next(window))
+hl.bind(mainMod .. " + SHIFT + H" , hl.dsp.window.move({into_group = "left"}))
+hl.bind(mainMod .. " + SHIFT + L" , hl.dsp.window.move({into_group = "right"}))
+hl.bind(mainMod .. " + SHIFT + comma" , hl.dsp.window.move({out_of_group = "left"}))
+hl.bind(mainMod .. " + SHIFT + period" , hl.dsp.window.move({out_of_group = "right"}))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -41,10 +59,6 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
-
--- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
