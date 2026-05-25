@@ -5,9 +5,15 @@ set = true
 command = "awww img --transition-type center {{ image }}"
 
 [templates.waybar]
-input_path = '~/.config/matugen/colors.css'
+pre_hook = 'rm -rf ~/.config/waybar/colors.css'
+input_path = '~/.config/matugen/colors/colors.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = "pkill -SIGUSR2 waybar"
+
+[templates.rofi]
+pre_hook = 'rm -rf ~/.config/rofi/type-2/colors/colors.rasi'
+input_path = '~/.config/matugen/colors/colors.rasi'
+output_path = '~/.config/rofi/type-2/colors/colors.rasi'
 
 
 
