@@ -42,6 +42,14 @@ hl.layer_rule({
 	match = {namespace = "swaync-control-center"},
 	animation = "slide right"
 })
+hl.layer_rule({
+    name = "wlogout-blur",
+    match = {
+        namespace = "logout_dialog"
+    },
+
+    blur = true,
+})
 -- Layer rules also return a handle.
 -- local overlayLayerRule = hl.layer_rule({
 --     name  = "no-anim-overlay",
