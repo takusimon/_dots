@@ -1,101 +1,258 @@
-# Starship + Matugen template
-# ~/.config/starship.toml
-
-add_newline = false
-
-format = """
-$cmd_duration $directory$git_branch$nix_shell
-  $character"""
-
-[fill]
-symbol = '-'
-style = 'fg:#a08d86'
+add_newline = true
+format = "$cmd_duration $directory$nix_shell$git_branch\n  $character"
+palette = "noctalia"
 
 [character]
-success_symbol = "[ ](bold fg:#53433e)"
-error_symbol = "[ ](bold fg:#ffb4ab)"
+error_symbol = "[ ](bold fg:244)"
+success_symbol = "[ ](bold fg:243)"
 
-[package]
-disabled = true
+[cmd_duration]
+format = "[](bold fg:252)[󰪢 $duration](bold bg:252 fg:235)[](bold fg:252)"
+min_time = 0
+
+[directory]
+format = "[](bold fg:255)[󰉋 → $path]($style)[](bold fg:255)"
+home_symbol = " "
+read_only = "  "
+style = "bg:255 fg:240"
+truncation_length = 2
+truncation_symbol = ".../"
+
+[directory.substitutions]
+Desktop = "  "
+Documents = "  "
+Downloads = "  "
+GitHub = " 󰊤 "
+Music = " 󰎈 "
+Pictures = "  "
+Videos = "  "
+
+[fill]
+style = "fg:245"
+symbol = "-"
 
 [git_branch]
+format = " 󰜥 [](bold fg:252)[$symbol $branch(:$remote_branch)](fg:235 bg:252)[ ](bold fg:252)"
+style = "bg: 252"
 symbol = "󰘬"
 truncation_length = 12
 truncation_symbol = ""
-format = " 󰜥 [](bold fg:#5d4035)[$symbol $branch(:$remote_branch)](fg:#ffdbce bg:#5d4035)[ ](bold fg:#5d4035)"
 
 [git_commit]
 commit_hash_length = 4
 tag_symbol = " "
 
 [git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold #ffb4ab)"
+cherry_pick = "[🍒 PICKING](bold red)"
+format = "[($state( $progress_current of $progress_total))]($style) "
 
 [git_status]
-conflicted = " 🏳 "
 ahead = " 🏎💨 "
 behind = " 😰 "
-diverged = " 😵 "
-untracked = " 🤷 ‍"
-stashed = " 📦 "
-modified = " 📝 "
-staged = '[++\($count\)](#ffb599)'
-renamed = " ✍️ "
+conflicted = " 🏳 "
 deleted = " 🗑 "
-
-[nix_shell]
-disabled = false
-symbol = "󱄅"
-impure_msg = "impure"
-pure_msg = "pure"
-unknown_msg = "shell"
-format = ' [](bold fg:#50471a)[$symbol $state( \($name\))](bold bg:#50471a fg:#f1e3a8)[](bold fg:#50471a)'
+diverged = " 😵 "
+modified = " 📝 "
+renamed = " ✍️ "
+staged = "[++($count)](green)"
+stashed = " 📦 "
+untracked = " 🤷 ‍"
 
 [hostname]
-ssh_only = false
-format = "[•$hostname](bg:#5d4035 bold fg:#ffdbce)[](bold fg:#5d4035)"
-trim_at = ".companyname.com"
 disabled = false
+format = "[•$hostname](bg:252 bold fg:235)[](bold fg:252)"
+ssh_only = false
+trim_at = ".companyname.com"
 
 [line_break]
 disabled = false
 
 [memory_usage]
 disabled = true
-threshold = -1
+style = "bold dimmed green"
 symbol = " "
-style = "bold dimmed #ffb599"
+threshold = -1
+
+[nix_shell]
+disabled = false
+format = " [](bold fg:252)[$symbol $state( ($name))](bold bg:252 fg:235)[](bold fg:252)"
+impure_msg = "nix-shell"
+pure_msg = "pure-shell"
+symbol = "󱄅"
+unknown_msg = "unknwn-shell"
+
+[package]
+disabled = true
+
+[palettes.noctalia]
+base = "#1b110f"
+black = "#1b110f"
+blue = "#ffb4a5"
+crust = "#452b00"
+cyan = "#fab6a8"
+flamingo = "#ffb94e"
+green = "#fab6a8"
+lavender = "#a13f2c"
+magenta = "#ffb4a5"
+mantle = "#1b110f"
+maroon = "#ffb4ab"
+mauve = "#a13f2c"
+overlay0 = "#56423e"
+overlay1 = "#ddc0ba"
+overlay2 = "#a58b86"
+peach = "#ffb94e"
+pink = "#ffb4a5"
+red = "#ffb4ab"
+rosewater = "#ffb94e"
+sapphire = "#fab6a8"
+sky = "#fab6a8"
+subtext0 = "#a58b86"
+subtext1 = "#ddc0ba"
+surface0 = "#1b110f"
+surface1 = "#1b110f"
+surface2 = "#56423e"
+teal = "#fab6a8"
+text = "#f2deda"
+white = "#f2deda"
+yellow = "#ffb94e"
 
 [time]
 disabled = true
-format = '🕙[\[ $time \]]($style) '
+format = "🕙[[ $time ]]($style) "
 time_format = "%T"
 
 [username]
-style_user = "bold bg:#5d4035 fg:#ffdbce"
-style_root = "bold #ffb4ab"
-format = "[](bold fg:#5d4035)[$user]($style)"
 disabled = false
+format = "[](bold fg:252)[$user]($style)"
 show_always = true
+style_root = "red bold"
+style_user = "bold bg:252 fg:235"
+add_newline = true
+format = "$cmd_duration $directory$nix_shell$git_branch\n  $character"
+palette = "noctalia"
 
-[directory]
-home_symbol = " "
-read_only = "  "
-style = "bg:#322824 fg:#f1dfd9"
-truncation_length = 2
-truncation_symbol = ".../"
-format = '[](bold fg:#322824)[󰉋 → $path]($style)[](bold fg:#322824)'
-
-[directory.substitutions]
-"Desktop" = "  "
-"Documents" = "  "
-"Downloads" = "  "
-"Music" = " 󰎈 "
-"Pictures" = "  "
-"Videos" = "  "
-"GitHub" = " 󰊤 "
+[character]
+error_symbol = "[ ](bold fg:244)"
+success_symbol = "[ ](bold fg:243)"
 
 [cmd_duration]
+format = "[](bold fg:252)[󰪢 $duration](bold bg:252 fg:235)[](bold fg:252)"
 min_time = 0
-format = '[](bold fg:#71361d)[󰪢 $duration](bold bg:#71361d fg:#ffdbce)[](bold fg:#71361d)'
+
+[directory]
+format = "[](bold fg:255)[󰉋 → $path]($style)[](bold fg:255)"
+home_symbol = " "
+read_only = "  "
+style = "bg:255 fg:240"
+truncation_length = 2
+truncation_symbol = ".../"
+
+[directory.substitutions]
+Desktop = "  "
+Documents = "  "
+Downloads = "  "
+GitHub = " 󰊤 "
+Music = " 󰎈 "
+Pictures = "  "
+Videos = "  "
+
+[fill]
+style = "fg:245"
+symbol = "-"
+
+[git_branch]
+format = " 󰜥 [](bold fg:252)[$symbol $branch(:$remote_branch)](fg:235 bg:252)[ ](bold fg:252)"
+style = "bg: 252"
+symbol = "󰘬"
+truncation_length = 12
+truncation_symbol = ""
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = " "
+
+[git_state]
+cherry_pick = "[🍒 PICKING](bold red)"
+format = "[($state( $progress_current of $progress_total))]($style) "
+
+[git_status]
+ahead = " 🏎💨 "
+behind = " 😰 "
+conflicted = " 🏳 "
+deleted = " 🗑 "
+diverged = " 😵 "
+modified = " 📝 "
+renamed = " ✍️ "
+staged = "[++($count)](green)"
+stashed = " 📦 "
+untracked = " 🤷 ‍"
+
+[hostname]
+disabled = false
+format = "[•$hostname](bg:252 bold fg:235)[](bold fg:252)"
+ssh_only = false
+trim_at = ".companyname.com"
+
+[line_break]
+disabled = false
+
+[memory_usage]
+disabled = true
+style = "bold dimmed green"
+symbol = " "
+threshold = -1
+
+[nix_shell]
+disabled = false
+format = " [](bold fg:252)[$symbol $state( ($name))](bold bg:252 fg:235)[](bold fg:252)"
+impure_msg = "nix-shell"
+pure_msg = "pure-shell"
+symbol = "󱄅"
+unknown_msg = "unknwn-shell"
+
+[package]
+disabled = true
+
+[palettes.noctalia]
+base = "#1b110f"
+black = "#1b110f"
+blue = "#ffb4a5"
+crust = "#452b00"
+cyan = "#fab6a8"
+flamingo = "#ffb94e"
+green = "#fab6a8"
+lavender = "#a13f2c"
+magenta = "#ffb4a5"
+mantle = "#1b110f"
+maroon = "#ffb4ab"
+mauve = "#a13f2c"
+overlay0 = "#56423e"
+overlay1 = "#ddc0ba"
+overlay2 = "#a58b86"
+peach = "#ffb94e"
+pink = "#ffb4a5"
+red = "#ffb4ab"
+rosewater = "#ffb94e"
+sapphire = "#fab6a8"
+sky = "#fab6a8"
+subtext0 = "#a58b86"
+subtext1 = "#ddc0ba"
+surface0 = "#1b110f"
+surface1 = "#1b110f"
+surface2 = "#56423e"
+teal = "#fab6a8"
+text = "#f2deda"
+white = "#f2deda"
+yellow = "#ffb94e"
+
+[time]
+disabled = true
+format = "🕙[[ $time ]]($style) "
+time_format = "%T"
+
+[username]
+disabled = false
+format = "[](bold fg:252)[$user]($style)"
+show_always = true
+style_root = "red bold"
+style_user = "bold bg:252 fg:235"
